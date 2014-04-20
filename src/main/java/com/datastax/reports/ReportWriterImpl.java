@@ -48,7 +48,7 @@ public class ReportWriterImpl implements ReportWriter {
 		String contactPointsStr = PropertyHelper.getProperty("contactPoints", "localhost");
 		int creditThreads = Integer.parseInt(PropertyHelper.getProperty("creditThreads", "3"));
 		int debitThreads = Integer.parseInt(PropertyHelper.getProperty("debitThreads", "3"));
-		BATCH_SIZE = Integer.parseInt(PropertyHelper.getProperty("batchSize", "150000"));
+		BATCH_SIZE = Integer.parseInt(PropertyHelper.getProperty("batchSize", "100000"));
 
 		ExecutorService creditExecutors = Executors.newFixedThreadPool(creditThreads);
 		ExecutorService debitExecutors = Executors.newFixedThreadPool(debitThreads);
@@ -88,8 +88,8 @@ public class ReportWriterImpl implements ReportWriter {
 			logger.warn("Problem closing files - please check : " + e.getMessage());
 		}
 
-		session.shutdown();
-		cluster.shutdown();
+		session.close();
+		cluster.close();
 
 		System.exit(0);
 	}

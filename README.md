@@ -28,7 +28,7 @@ To run the bulk loader, this defaults to 1 million rows.
     
 To run it other settings for no of rows, jmx host and port
 
-	mvn clean compile exec:java -Dexec.mainClass="com.datastax.bulkloader.Main"  -DnoOfRows=5000000 -Djmxhost=cassandra1 -Djmxport=7191    
+	mvn clean compile exec:java -Dexec.mainClass="com.datastax.bulkloader.Main"  -DnoOfRows=2000000 -Djmxhost=cassandra1 
 	
 To run the report writer to fill a file with a batchSize of transactions
 

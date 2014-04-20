@@ -6,14 +6,14 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.datastax.bulkloader.BulkLoadTransactions;
+import com.datastax.bulkloader.BulkLoader;
 import com.datastax.model.Transaction;
 
 public class CreateSSTables {
 
 	private static Logger logger = LoggerFactory.getLogger(CreateSSTables.class);
 	
-	public static void createSSTables(BulkLoadTransactions bulkLoader, int totalTrans) throws IOException {
+	public static void createSSTables(BulkLoader bulkLoader, int totalTrans) throws IOException {
 				
 		int batch = 10000;
 		int cycles = totalTrans / batch;	
