@@ -75,8 +75,7 @@ public class CQL3BulkLoadTransactions implements BulkLoader {
 
 		for (Transaction transaction : transactions) {
 			
-			String yearMonth = monthYearFormat
-					.format(transaction.getTxtnDate());
+			String yearMonth = "" + String.format("%04d", transaction.getTxtnDate().getYear()) + String.format("%02d", transaction.getTxtnDate().getMonth());
 			String rowKey =transaction.getAcountId() + "-" + yearMonth;			
 			double amount = transaction.getAmount();
 			

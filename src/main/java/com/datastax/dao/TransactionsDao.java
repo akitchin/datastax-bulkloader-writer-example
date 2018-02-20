@@ -79,7 +79,7 @@ public class TransactionsDao {
 		trans.setAcountId(row.getString("accid"));
 		trans.setAmount(row.getDouble("amount"));
 		trans.setTxtnId(row.getUUID("txtnid").toString());
-		trans.setTxtnDate(row.getDate("txtntime"));
+		trans.setTxtnDate(java.sql.Date.valueOf(row.getDate("txtntime").toString()));
 		trans.setReason(row.getString("reason"));
 		trans.setType(row.getString("type"));
 

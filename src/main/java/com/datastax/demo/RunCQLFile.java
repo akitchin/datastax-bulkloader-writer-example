@@ -25,10 +25,10 @@ public abstract class RunCQLFile {
 		
 		String contactPointsStr = System.getProperty("contactPoints");
 		if (contactPointsStr == null) {
-			contactPointsStr = "127.0.0.1";
+			contactPointsStr = "localhost";
 		}
 
-		cluster = Cluster.builder().addContactPoints(contactPointsStr.split(",")).build();
+		cluster = Cluster.builder().addContactPoints(contactPointsStr.split(",")).withPort(9042).build();
 		session = cluster.connect();
 	}
 	
